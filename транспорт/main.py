@@ -15,9 +15,9 @@ class MainWindow(Ui_MainWindow):
         self.setupUi(self)
         
         self.db_connection()
-        self.db_table1()
-        self.db_table2()
-        self.db_table3()
+        self.rename_table_provider()
+        self.rename_table_invoice()
+        self.rename_table_good_invoice()
         
         self.tableView_provader.hideColumn(0)
         self.tableView_invoices.hideColumn(0)
@@ -30,7 +30,7 @@ class MainWindow(Ui_MainWindow):
         
         self.pushButton_delete_provader.clicked.connect(self.delete_add_provider)
         self.pushButton_delete_invoices.clicked.connect(self.delete_add_invoice)
-        
+        self.pushButton_delete_tovar_invoices.clicked.connect(self.delete_add_goods)
         self.pb_window.clicked.connect(self.open_window2)
         
         
@@ -52,7 +52,7 @@ class MainWindow(Ui_MainWindow):
         
 
 
-    def db_table1(self):
+    def rename_table_provider(self):
         stm =QSqlTableModel()
         stm.setTable('provider')
         stm.select()
@@ -62,7 +62,7 @@ class MainWindow(Ui_MainWindow):
         
         
         
-    def db_table2(self):
+    def rename_table_invoice(self):
         stm2 =QSqlTableModel()
         stm2.setTable('invoices')
         stm2.select()
@@ -72,7 +72,7 @@ class MainWindow(Ui_MainWindow):
         
         
         
-    def db_table3(self):
+    def rename_table_good_invoice(self):
         stm3 =QSqlTableModel()
         stm3.setTable('goods_invoices')
         stm3.select()
@@ -100,9 +100,10 @@ class MainWindow(Ui_MainWindow):
     
     def open_window2(self):
         self.window2 = addWindow2()
-        self.setupUi(self.window2)
+        self.window2.setupUi(self.window2)
         self.window2.show()    
-    
+  
+
         
         
     #кнопка удаление данных  
@@ -120,6 +121,11 @@ class MainWindow(Ui_MainWindow):
         selected_row = self.tableView_tovar_invoices.selectedIndexes()[0].row()
         model = self.tableView_tovar_invoices.model()
         model.removeRow(selected_row)
+        
+    # Change 
+    
+    # def change_provider(self):
+        
         
         
     
