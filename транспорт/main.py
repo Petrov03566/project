@@ -9,7 +9,16 @@ from goodsinvoice import addGoodsInvoice
 from delete_pv import Deleteprovader
 from Window2 import addWindow2
 from chanceProvader import AddProvaderchance
+
+
+
+
+
+
+
+
 class MainWindow(Ui_MainWindow):
+    
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -74,7 +83,7 @@ class MainWindow(Ui_MainWindow):
         
     def rename_table_good_invoice(self):
         stm3 =QSqlTableModel()
-        stm3.setTable('goods_invoices')
+        stm3.setTable('goods')
         stm3.select()
         self.tableView_tovar_invoices.setModel(stm3)
         stm3.setHeaderData(1, QtCore.Qt.Horizontal,"Имя товара")
@@ -87,6 +96,7 @@ class MainWindow(Ui_MainWindow):
     #кнопка открытие окно 
     def open_provider(self):
         self.provider =ProviderAdd(tableView_provader=self.tableView_provader)
+        
         self.provider.show()
         
         
@@ -108,9 +118,11 @@ class MainWindow(Ui_MainWindow):
         
     #кнопка удаление данных  
     def delete_add_provider(self):
+        
         selected_row = self.tableView_provader.selectedIndexes()[0].row()
         model = self.tableView_provader.model()
         model.removeRow(selected_row)
+        
         
     def delete_add_invoice(self):
         selected_row = self.tableView_invoices.selectedIndexes()[0].row()

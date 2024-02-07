@@ -17,9 +17,9 @@ class addGoodsInvoice(WindowAddGoodsInvoice):
     def add_goodsinvoice(self):
          if self.lineEdit_col.text(): 
             queru_gn =QSqlQuery()
-            queru_gn.exec(f"INSERT INTO public.goods_invoices (name,price,count,cost) VALUES ('{self.comboBox.currentText()}',{str(1)},{self.lineEdit_col.text()},{str(1)})")
+            queru_gn.exec(f"INSERT INTO public.goods (name,price,count,cost) VALUES ('{self.comboBox.currentText()}',{str(1)},{self.lineEdit_col.text()},{str(1)})")
             queru3 =QSqlTableModel()
-            queru3.setTable("goods_invoices")
+            queru3.setTable("goods")
             queru3.select()
             self.goodsinvoice.setModel(queru3)
             
