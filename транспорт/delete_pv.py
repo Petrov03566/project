@@ -12,6 +12,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Deleteprovader(QtWidgets.QMainWindow):
+    def __init__(self):
+        super().__init__()
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(427, 121)

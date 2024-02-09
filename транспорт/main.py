@@ -38,6 +38,7 @@ class MainWindow(Ui_MainWindow):
         self.pushButton_add_tovar_invoices.clicked.connect(self.open_goods_invoices)
         
         self.pushButton_delete_provader.clicked.connect(self.delete_add_provider)
+        
         self.pushButton_delete_invoices.clicked.connect(self.delete_add_invoice)
         self.pushButton_delete_tovar_invoices.clicked.connect(self.delete_add_goods)
         self.pb_window.clicked.connect(self.open_window2)
@@ -118,10 +119,13 @@ class MainWindow(Ui_MainWindow):
         
     #кнопка удаление данных  
     def delete_add_provider(self):
+        self.delete_provider =Deleteprovader()
+        self.delete_provider.setupUi(self.delete_provider)
         
-        selected_row = self.tableView_provader.selectedIndexes()[0].row()
-        model = self.tableView_provader.model()
-        model.removeRow(selected_row)
+        self.delete_provider.show()
+    #     selected_row = self.tableView_provader.selectedIndexes()[0].row()
+    #     model = self.tableView_provader.model()
+    #     model.removeRow(selected_row)
         
         
     def delete_add_invoice(self):
@@ -134,9 +138,7 @@ class MainWindow(Ui_MainWindow):
         model = self.tableView_tovar_invoices.model()
         model.removeRow(selected_row)
         
-    # Change 
-    
-    # def change_provider(self):
+   
         
         
         
