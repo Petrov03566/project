@@ -1,0 +1,55 @@
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+
+class WindowAddGoodsInvoice(QtWidgets.QMainWindow):
+    def setupUi(self, Form):
+        Form.setObjectName("Form")
+        Form.resize(361, 248)
+        self.comboBox = QtWidgets.QComboBox(Form)
+        self.comboBox.setGeometry(QtCore.QRect(30, 50, 321, 31))
+        self.comboBox.setObjectName("comboBox")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.lineEdit_col = QtWidgets.QLineEdit(Form)
+        self.lineEdit_col.setGeometry(QtCore.QRect(30, 140, 321, 26))
+        self.lineEdit_col.setObjectName("lineEdit_col")
+        self.pb_add_goods_invoice = QtWidgets.QPushButton(Form)
+        self.pb_add_goods_invoice.setGeometry(QtCore.QRect(20, 200, 80, 26))
+        self.pb_add_goods_invoice.setObjectName("pb_add_goods_invoice")
+        self.pb_cansel_goods_invoice = QtWidgets.QPushButton(Form)
+        self.pb_cansel_goods_invoice.setGeometry(QtCore.QRect(260, 200, 80, 26))
+        self.pb_cansel_goods_invoice.setObjectName("pb_cansel_goods_invoice")
+        self.label_coust = QtWidgets.QLabel(Form)
+        self.label_coust.setGeometry(QtCore.QRect(40, 110, 121, 18))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.label_coust.setFont(font)
+        self.label_coust.setObjectName("label_coust")
+        self.label_name_tovar2 = QtWidgets.QLabel(Form)
+        self.label_name_tovar2.setGeometry(QtCore.QRect(30, 20, 181, 20))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.label_name_tovar2.setFont(font)
+        self.label_name_tovar2.setObjectName("label_name_tovar2")
+
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def retranslateUi(self, Form):
+        _translate = QtCore.QCoreApplication.translate
+        Form.setWindowTitle(_translate("Form", "добавление товары накладных"))
+        self.comboBox.setItemText(0, _translate("Form", "молоко"))
+        self.comboBox.setItemText(1, _translate("Form", "кефир"))
+        self.comboBox.setItemText(2, _translate("Form", "сахар"))
+        self.comboBox.setItemText(3, _translate("Form", "свинину "))
+        self.comboBox.setItemText(4, _translate("Form", "тушенку "))
+        self.comboBox.setItemText(5, _translate("Form", "творог"))
+        self.pb_add_goods_invoice.setText(_translate("Form", "добавить "))
+        self.pb_cansel_goods_invoice.setText(_translate("Form", "отмена "))
+        self.label_coust.setText(_translate("Form", "Количество "))
+        self.label_name_tovar2.setText(_translate("Form", "Имя товара "))
